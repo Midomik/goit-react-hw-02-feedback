@@ -25,7 +25,10 @@ export class App extends Component {
     return (
       <div className={css.main_container}>
         <Section title={'Option'}>
-          <FeedbackOptions getFeedbeck={this.getFeedbeck} />
+          <FeedbackOptions
+            getFeedbeck={this.getFeedbeck}
+            options={Object.keys(this.state)}
+          />
         </Section>
 
         <Section title={'Statistic'}>

@@ -1,27 +1,19 @@
 import css from './FeedbackOptions.module.css';
-export const FeedbackOptions = ({ getFeedbeck }) => {
+export const FeedbackOptions = ({ getFeedbeck, options }) => {
   return (
     <div className={css.buttons_container}>
-      <button
-        type="button"
-        name="good"
-        onClick={() => getFeedbeck('good')}
-        className={css.btn}
-      >
-        Good
-      </button>
-
-      <button
-        name="neutrall"
-        onClick={() => getFeedbeck('neutral')}
-        className={css.btn}
-      >
-        Neutral
-      </button>
-
-      <button name="bad" onClick={() => getFeedbeck('bad')} className={css.btn}>
-        Bad
-      </button>
+      {options.map(item => {
+        return (
+          <button
+            key={item}
+            name={item}
+            onClick={() => getFeedbeck(item)}
+            className={css.btn}
+          >
+            {item}
+          </button>
+        );
+      })}
     </div>
   );
 };
